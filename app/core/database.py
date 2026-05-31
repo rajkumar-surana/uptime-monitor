@@ -14,11 +14,15 @@ def get_redis():
 
 async def init_pool():
     global pool
-    pwd= os.getenv("postgres_pwd")
+    host = os.getenv("postgres_host", "localhost")
+    port = os.getenv("postgres_port", "5432")
+    user = os.getenv("postgres_user", "admin4000")
+    pwd = os.getenv("postgres_pwd")
+    db = os.getenv("postgres_db", "postgres")
     pool = await asyncpg.create_pool(
-        dsn=f"postgresql://admin4000:{pwd}@uptimemonitor-db.postgres.database.azure.com/postgres",
-        min_size=5,     # always keep 5 connections warm
-        max_size=20,    # never exceed 20 connections
+        dsn=f"postgresql://{user}:{pwd}@{host}:{port}/{db}",
+        min_size=5,
+        max_size=20,
         ssl="require"
     )
 
