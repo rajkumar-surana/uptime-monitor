@@ -14,6 +14,7 @@ async def registerMonitor( body: monitorCreate, conn, user_id ):
 
 async def deleteMonitor(monitor_id, user_id, conn):
 
+    await conn.execute("DELETE FROM check_results WHERE monitor_id = $1", monitor_id)
     result = await conn.execute("DELETE FROM monitors WHERE id = $1 AND user_id = $2", monitor_id, user_id)
 
     if result == "DELETE 0":
