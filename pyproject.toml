@@ -1,0 +1,16 @@
+[project]
+name = "uptime-monitor"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "asyncpg>=0.31.0",
+    "fastapi>=0.136.1",
+    "httpx>=0.28.1",
+    "passlib[bcrypt]>=1.7.4",
+    "psycopg[binary]>=3.3.4",
+    "pyjwt>=2.12.1",
+    "redis>=8.0.0",
+    "uvicorn>=0.47.0",
+]

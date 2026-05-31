@@ -1,0 +1,8 @@
+.venv/
+.git/
+__pycache__/
+*.pyc
+.gitignore
+check_db.py
+*.md
+.env
